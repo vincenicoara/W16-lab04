@@ -22,8 +22,8 @@ public class TouchScreenPhone extends GeneralPathWrapper implements Shape
     /**
        Constructor
        
-       @param x x coord of lower left corner of phone 
-       @param y y coord of lower left corner of phone 
+       @param x x coord of upper left corner of phone from the left
+       @param y y coord of upper left corner of phone from the top 
        @param height height of the phone 
     */
     public TouchScreenPhone(double x, double y, double height)
