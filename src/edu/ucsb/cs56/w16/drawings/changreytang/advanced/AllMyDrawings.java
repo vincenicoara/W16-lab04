@@ -83,7 +83,7 @@ public class AllMyDrawings
 	g2.setColor(Color.BLACK);
 	g2.draw(ip2);
 	
-	g2.drawString("Phone Screen Stroke", 20,20);
+	g2.drawString("Phone Screen Stroke by Chang Rey Tang", 20,20);
     }
     
     /** Draw a different picture with a few houses and coffee cups
@@ -108,7 +108,7 @@ public class AllMyDrawings
 	g2.setColor(Color.RED);
 	g2.draw(ip5);	
 
-	g2.drawString("IPhonception by Phill Conrad", 20,20);
+	g2.drawString("IPhonception by Chang Rey Tang", 20,20);
 	
     }       
 }
