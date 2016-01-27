@@ -66,7 +66,7 @@ public class AllMyDrawings
 	
 	TouchScreenPhone p1 = new TouchScreenPhone(100, 10, 100);
 	TouchScreenPhone p2 = new TouchScreenPhone(200, 100, 200);
-	TouchScreenPhone p3 = new TouchScreenPhone(400, 2200, 225);
+	IPhone p3 = new IPhone(300,150,200);
 	g2.setColor(Color.BLACK);
 	g2.draw(p1);
 	g2.setColor(Color.RED);
