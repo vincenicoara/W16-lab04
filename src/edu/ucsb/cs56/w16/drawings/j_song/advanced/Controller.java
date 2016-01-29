@@ -13,7 +13,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
    the Shape interface, and so can be drawn, as well as
    rotated, scaled, etc.
       
-   @author Phill Conrad 
+   @author Joseph Song
    @version for CS56, W16, UCSB
    
 */
@@ -45,15 +45,21 @@ public class Controller extends GeneralPathWrapper implements Shape
         // add the buttons.   Remember that y goes DOWN the page,
         // so we ADD to y to get a "lower" value on the screen
         
-        double buttonRadius = .15 * height;
+        double buttonRadius = .10 * height;
 
-        Circle button0 = new Circle(x+(width*.75), y+(height*.75));
+        Circle button0 = new Circle(x+(width*.75), y+(height*.7), buttonRadius);
+        Circle button1 = new Circle(x+(width*.88), y+(height*.5), buttonRadius);
+
+        Rectangle2D.Double dPad0 = new Rectangle2D.Double(x+(width*.12), y+(height*.455), width*.22, width*.08);
+        Rectangle2D.Double dPad1 = new Rectangle2D.Double(x+(width*.19), y+(height*.32), width*.08, width*.22);
 
         // put the whole Controller together
 	
         GeneralPath wholeController = this.get();
-        wholeHouse.append(controllerBody, false);
-        wholeHouse.append(button0, false);
-        wholeHouse.append(rightRoof, false);    
+        wholeController.append(controllerBody, false);
+        wholeController.append(button0, false);
+        wholeController.append(button1, false);
+        wholeController.append(dPad0, false);
+        wholeController.append(dPad1, false);
     }
 }
