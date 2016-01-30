@@ -12,7 +12,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 /**
  * A class with static methods for drawing various pictures
  * 
- * @author Phill Conrad 
+ * @author Yanxi Chen 
  * @version for UCSB CS56, W16 
  */
 
@@ -23,7 +23,7 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	House h1 = new House(100,250,50,75);
+	BallonWithFace h1 = new BallonWithFace(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
 	// Make a black house that's half the size, 
@@ -50,10 +50,9 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows
-	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	// Draw two BallonWithFace
+	BallonWithFace hw1 = new BallonWithFace(100,310,100,200);
+	BallonWithFace hw2 = new BallonWithFace(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
@@ -62,37 +61,33 @@ public class AllMyDrawings
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
+	g2.drawString("A few ballons by Yanxi Chen", 20,20);
     }
     
     
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a picture with a few ballons
      */
     public static void drawPicture2(Graphics2D g2) {
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	BallonWithFace large = new BallonWithFace(100,50,225,150);
+	BallonWithFace smallCC = new BallonWithFace(20,50,40,30);
+	BallonWithFace tallSkinny = new BallonWithFace(20,150,20,40);
+	BallonWithFace shortFat = new BallonWithFace(20,250,40,20);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
 	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
 	
-	House h1 = new House(100,250,50,75);
+	BallonWithFace h1 = new BallonWithFace(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
-	// Make a black house that's half the size, 
-	// and moved over 150 pixels in x direction
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(h2);
 	
-	// Here's a house that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
 	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
 	
@@ -108,10 +103,10 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows
+	// Draw two ballons with Windows
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	BallonWithFace hw1 = new BallonWithFace(50,350,40,75);
+	BallonWithFace hw2 = new BallonWithFace(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
@@ -125,7 +120,7 @@ public class AllMyDrawings
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	g2.drawString("A bunch of ballons with faces drawn by Yanxi Chen", 20,20);
     }
     
     /** Draw a different picture with a few houses and coffee cups
@@ -135,13 +130,13 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A bunch of ballons with faces drawn by yanxi Chen", 20,20);
 	
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+	BallonWithFace large = new BallonWithFace(100,50,225,150);
+	BallonWithFace smallCC = new BallonWithFace(20,50,40,30);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
