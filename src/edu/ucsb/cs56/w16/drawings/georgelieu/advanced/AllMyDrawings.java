@@ -135,27 +135,26 @@ public class AllMyDrawings
 	
 	// label the drawing
 
-	g2.drawString("A cake by George Lieu",20,20);
+	//g2.drawString("A cake by George Lieu",20,20);
 
 	Cake large = new BirthdayCake(200,123,421,123);
-	//Cake small = new Cake(50,50,50,50);
+	Cake small = new BirthdayCake(50,50,50,50);
+	Cake medium = new BirthdayCake(100,75, 100, 75);
 
 	g2.setColor(Color.RED);
-	g2.draw(large);
-	//g2.setColor(Color.GREEN);
-	//g2.draw(small);
+	Shape different3 = ShapeTransforms.scaledCopyOfLL(large,0.5, 0.5);
+	g2.draw(different3);
+
+	Shape different = ShapeTransforms.translatedCopyOf(medium,0, 150);
+	g2.setColor(Color.GREEN);
+	g2.draw(different);
 	
-	/*
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.setColor(Color.BLUE);
+	Shape different2 = ShapeTransforms.rotatedCopyOf(medium, Math.PI/4.0);
+	g2.draw(different2);
+
+	g2.setColor(Color.BLACK); 
+	g2.drawString("A Mix of Birthday Cakes by George Lieu", 20,20);
 	
-	
-	// Draw some coffee cups.
-	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	*/	
     }       
 }
