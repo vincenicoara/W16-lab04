@@ -12,9 +12,9 @@ public class AnimatedPictureViewer extends JFrame
 {
     Thread animate;
     AnimatedPictureComponent component;
-    static final double phoneXPos = 200;
+    static final double phoneXPos = 213;
     static final double phoneYPos = 100;
-    static final double phoneWidth = 200;
+    static final double phoneWidth = 250;
     
 
     /** constructs a JFrame with an animated picture inside

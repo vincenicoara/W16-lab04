@@ -41,8 +41,8 @@ public class AnimatedPictureComponent extends JComponent
     private Shape LockHold;
     private Shape Lock;
     private int time = 0;
-    private double xLockTravel = 0;
-    private double xLockPos = 0;
+    private int lockTime = 0;
+    private double xLockSpeed;
     private double phoneXPos;
     private double phoneYPos;
     private double phoneHeight;
@@ -62,8 +62,10 @@ public class AnimatedPictureComponent extends JComponent
 	this.phoneYPos = phoneYPos;
 	this.phoneHeight = phoneHeight;
 	this.phoneWidth = 0.6*phoneHeight;
+	this.xLockSpeed = (phoneYPos+0.77*phoneHeight - 2*0.15*phoneWidth)/200;
 
 	LockHold = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.77*phoneWidth, 0.1*phoneHeight);
+	Lock = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.20*phoneWidth, 0.1*phoneHeight);
 	BottomLine = new Line2D.Double(phoneXPos+phoneHeight*0.025, phoneYPos+0.73*phoneHeight, phoneXPos+phoneHeight*0.025+0.9*phoneWidth, phoneYPos+0.73*phoneHeight);
 	TopLine = new Line2D.Double(phoneXPos+phoneHeight*0.025, phoneYPos+0.22*phoneHeight, phoneXPos+phoneHeight*0.025+0.9*phoneWidth, phoneYPos+0.22*phoneHeight);
     	TouchScreenPhone = new TouchScreenPhone(this.phoneXPos, this.phoneYPos, this.phoneHeight);
@@ -78,19 +80,38 @@ public class AnimatedPictureComponent extends JComponent
    public void paintComponent(Graphics g)
    {  
        Graphics2D g2 = (Graphics2D) g;
-
-       if(time < 300 && time%4 != 0) {
-	   g2.draw(IPhone);
+       
+       g2.setColor(Color.BLACK);
+       if(time < 200 && (time%12 == 0 || time%12 == 1 || time%12 == 2 || time%12 == 3)) {
+       	   g2.draw(IPhone);
+	   g2.drawString("BOOTING UP.",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
        }
-       else if (time < 300 && time%4 == 0) {
-	   g2.draw(TouchScreenPhone);
-	   g2.drawString("BOOTING UP",(int)phoneXPos+0.5*phoneWidth,(int)phoneYPos+0.5*phoneHeight);
+       else if (time < 200 && (time%12 == 4 || time%12 == 5 || time%12 == 6 || time%12 == 7)) {
+           g2.draw(IPhone);
+	   g2.drawString("BOOTING UP..",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
        }
-       else if (time > 300) {
+       else if (time < 200 && (time%12 == 8 || time%12 == 9 || time%12 == 10 || time%12 == 11)) {
+           g2.draw(IPhone);
+	   g2.drawString("BOOTING UP...",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
+       }
+       else if (time > 200) {
        	   g2.draw(TouchScreenPhone);
 	   g2.draw(BottomLine);
 	   g2.draw(TopLine);
 	   g2.draw(LockHold);
+	   g2.setColor(Color.BLUE);
+	   if(time < 250) 
+	       g2.draw(Lock);
+	   else {
+	       Lock = ShapeTransforms.translatedCopyOf(Lock,xLockSpeed,0);
+	       g2.draw(Lock);
+	       lockTime++;
+	   }       
+	   if(lockTime > 65) {
+	       time = 0;
+	       lockTime = 0;
+	       Lock = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.20*phoneWidth, 0.1*phoneHeight);
+	   }
        }
        time++;
    }    
