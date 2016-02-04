@@ -14,7 +14,7 @@ public class AnimatedPictureViewer extends JFrame
     AnimatedPictureComponent component;
     static final double phoneXPos = 213;
     static final double phoneYPos = 100;
-    static final double phoneWidth = 250;
+    static final double phoneWidth = 270;
     
 
     /** constructs a JFrame with an animated picture inside

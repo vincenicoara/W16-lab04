@@ -99,6 +99,8 @@ public class AnimatedPictureComponent extends JComponent
 	   g2.draw(BottomLine);
 	   g2.draw(TopLine);
 	   g2.draw(LockHold);
+	   g2.drawString("11:11 PM", (int)(phoneXPos+0.33*phoneWidth),(int)(phoneYPos+0.15*phoneHeight));
+	   g2.drawString("Slide to unlock",(int)( phoneXPos+0.18*phoneWidth), (int)(phoneYPos+0.84*phoneHeight));
 	   g2.setColor(Color.BLUE);
 	   if(time < 250) 
 	       g2.draw(Lock);
@@ -107,7 +109,7 @@ public class AnimatedPictureComponent extends JComponent
 	       g2.draw(Lock);
 	       lockTime++;
 	   }       
-	   if(lockTime > 65) {
+	   if(lockTime > 68) {
 	       time = 0;
 	       lockTime = 0;
 	       Lock = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.20*phoneWidth, 0.1*phoneHeight);
