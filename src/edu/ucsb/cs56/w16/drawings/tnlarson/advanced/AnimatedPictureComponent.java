@@ -77,10 +77,8 @@ public class AnimatedPictureComponent extends JComponent
 
 	if((-1 * this.radius) >= this.init_radius) {
 	    this.radial_velocity_direction = 1;
-	    System.out.println("Radial velocity flipped");
 	} else if(this.radius >= this.init_radius) {
 	    this.radial_velocity_direction = -1;
-	    System.out.println("Radial velocity flipped");
 	}
 
 	this.radius += this.radial_velocity_direction * this.radial_velocity;
