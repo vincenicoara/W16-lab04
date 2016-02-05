@@ -137,25 +137,12 @@ public class AllMyDrawings
 
 	g2.drawString("A cake by George Lieu",20,20);
 
-	Cake large = new BirthdayCake(200,123,421,123);
-	//Cake small = new Cake(50,50,50,50);
+	Cake large = new BirthdayCake(50,50,100,100);
 
+	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);      
+	g2.setStroke(thick);
 	g2.setColor(Color.RED);
 	g2.draw(large);
-	//g2.setColor(Color.GREEN);
-	//g2.draw(small);
 	
-	/*
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
-	
-	
-	// Draw some coffee cups.
-	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	*/	
     }       
 }
