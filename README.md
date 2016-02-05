@@ -1,8 +1,6 @@
 # W16-lab04
 Base repository for CS56 W16 lab04 (Open Source)
 
-javadoc: http://www.cs.ucsb.edu/~tnlarson/cs56/W16-lab04/javadoc/
-
 # Student Instructions
 
 * See https://foo.cs.ucsb.edu/56wiki/index.php/W16:Labs:lab04
