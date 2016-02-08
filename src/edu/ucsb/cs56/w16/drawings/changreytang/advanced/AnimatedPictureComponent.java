@@ -83,39 +83,38 @@ public class AnimatedPictureComponent extends JComponent
        
        g2.setColor(Color.BLACK);
        if(time < 200 && (time%12 == 0 || time%12 == 1 || time%12 == 2 || time%12 == 3)) {
-       	   g2.draw(IPhone);
-	   g2.drawString("BOOTING UP.",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
+           g2.draw(IPhone);
+           g2.drawString("BOOTING UP.",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
        }
        else if (time < 200 && (time%12 == 4 || time%12 == 5 || time%12 == 6 || time%12 == 7)) {
            g2.draw(IPhone);
-	   g2.drawString("BOOTING UP..",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
+           g2.drawString("BOOTING UP..",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
        }
        else if (time < 200 && (time%12 == 8 || time%12 == 9 || time%12 == 10 || time%12 == 11)) {
            g2.draw(IPhone);
-	   g2.drawString("BOOTING UP...",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
+           g2.drawString("BOOTING UP...",(int)(phoneXPos+0.25*phoneWidth),(int)(phoneYPos+0.70*phoneHeight));
        }
        else if (time > 200) {
        	   g2.draw(TouchScreenPhone);
-	   g2.draw(BottomLine);
-	   g2.draw(TopLine);
-	   g2.draw(LockHold);
-	   g2.drawString("11:11 PM", (int)(phoneXPos+0.33*phoneWidth),(int)(phoneYPos+0.15*phoneHeight));
-	   g2.drawString("Slide to unlock",(int)( phoneXPos+0.18*phoneWidth), (int)(phoneYPos+0.84*phoneHeight));
-	   g2.setColor(Color.BLUE);
-	   if(time < 250) 
-	       g2.draw(Lock);
-	   else {
-	       Lock = ShapeTransforms.translatedCopyOf(Lock,xLockSpeed,0);
-	       g2.draw(Lock);
-	       lockTime++;
-	   }       
-	   if(lockTime > 68) {
-	       time = 0;
-	       lockTime = 0;
-	       Lock = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.20*phoneWidth, 0.1*phoneHeight);
-	   }
+           g2.draw(BottomLine);
+           g2.draw(TopLine);
+           g2.draw(LockHold);
+           g2.drawString("11:11 PM", (int)(phoneXPos+0.33*phoneWidth),(int)(phoneYPos+0.15*phoneHeight));
+           g2.drawString("Slide to unlock",(int)( phoneXPos+0.18*phoneWidth), (int)(phoneYPos+0.84*phoneHeight));
+           g2.setColor(Color.BLUE);
+           if(time < 250) 
+               g2.draw(Lock);
+           else {
+               Lock = ShapeTransforms.translatedCopyOf(Lock,xLockSpeed,0);
+               g2.draw(Lock);
+               lockTime++;
+           }       
+           if(lockTime > 68) {
+               time = 0;
+               lockTime = 0;
+               Lock = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.20*phoneWidth, 0.1*phoneHeight);
+           }
        }
        time++;
    }    
-  
 }

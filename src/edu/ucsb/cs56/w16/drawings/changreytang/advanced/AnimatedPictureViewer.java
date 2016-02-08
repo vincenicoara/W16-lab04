@@ -4,8 +4,8 @@ import java.awt.event.*;
 
 /** A viewer class to see an animated picture by Jakob Staahl
    
-   @author Jakob Staahl
-   @version CS56, W14
+   @author Chang Rey Tang 
+   @version CS56, W16
  */
 
 public class AnimatedPictureViewer extends JFrame
