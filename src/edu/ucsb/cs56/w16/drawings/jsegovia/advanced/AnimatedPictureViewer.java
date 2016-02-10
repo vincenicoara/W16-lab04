@@ -42,37 +42,38 @@ public class AnimatedPictureViewer {
       frame.setVisible(true);
       
       frame.getContentPane().addMouseListener(new MouseAdapter() {
-        public void mouseEntered(MouseEvent e){
-        System.out.println("mouse entered");
-          anim = new Animation();
-          anim.start();
+        public void mousePressed(MouseEvent e){
+	    System.out.println("Mouse clicked");
+	    anim = new Animation();
+	    anim.start();
         }
-
-        public void mouseExited(MouseEvent e){        
-          System.out.println("Mouse exited");
-          // Kill the animation thread
-          anim.interrupt();
-          while (anim.isAlive()){}
-          anim = null;         
-          panel.repaint();        
-        }
-      });
+	      
+	public void mouseReleased(MouseEvent e){        
+	    System.out.println("Mouse released");
+	    // Kill the animation thread
+	    anim.interrupt();
+	    while (anim.isAlive()){}
+	    anim = null;         
+	    panel.repaint();        
+	}
+	  });
       
     } // go()
 
     class DrawPanel extends JPanel {
        public void paintComponent(Graphics g) {
-
-        Graphics2D g2 = (Graphics2D) g;
-	g2.drawString("Put the mouse inside the window to start the animation", 20,20);
-	// Clear the panel first
-	g2.setColor(Color.white);
-	g2.fillRect(0,0,this.getWidth(), this.getHeight());
-	
-	// Draw Storke Tower
-	g2.setColor(Color.BLACK);
-	StorkeTower test = new StorkeTower(x, y, width, height);
-	g2.draw(test);
+	  
+	   Graphics2D g2 = (Graphics2D) g;
+	  
+	   // Clear the panel first
+	   g2.setColor(Color.cyan);
+	   g2.fillRect(0,0,this.getWidth(), this.getHeight());
+	   
+	   // Draw Storke Tower and print message
+	   g2.setColor(Color.BLACK);
+	   g2.drawString("Press and hold to animate", 20,20);
+	   StorkeTower test = new StorkeTower(x, y, width, height);
+	   g2.draw(test);
        }
     }
     
