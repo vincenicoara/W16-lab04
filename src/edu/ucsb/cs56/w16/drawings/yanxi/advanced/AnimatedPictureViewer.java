@@ -3,6 +3,7 @@ package edu.ucsb.cs56.w16.drawings.yanxi.advanced;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.lang.Math;
 
 /**
  * A main class to view an animation
@@ -23,9 +24,12 @@ public class AnimatedPictureViewer {
     private int x = 100;
     private int y = 100;
     
+    private int r = 50;
+    private int l = 50;
     private int dx = 10;
     private int dy = 10;
 
+    private Color color = Color.BLUE;
     public static void main(String[] args){
 	new AnimatedPictureViewer().go();
     }
@@ -46,9 +50,11 @@ public class AnimatedPictureViewer {
 
 	    g2.setColor(Color.white);
 	    g2.fillRect(0,0,this.getWidth(), this.getHeight());
-	    g2.setColor(Color.BLUE);
-	    BallonWithFace b = new BallonWithFace(x, y, 50, 50);
+	    g2.setColor(color);
+	    BallonWithFace b = new BallonWithFace(x, y, r, l);
+	    BallonWithFace a = new BallonWithFace(y, x, r, l);
 	    g2.draw(b);
+	    g2.draw(a);
 	}
     }
     
@@ -56,7 +62,6 @@ public class AnimatedPictureViewer {
 	public void run(){
 	    try{
 		while(true){
-		    
 		    if (x >= 600 || x <= 50){
 			dx *= -1;
 		    }
@@ -76,4 +81,4 @@ public class AnimatedPictureViewer {
 	}
     }
 }
-		    
+
