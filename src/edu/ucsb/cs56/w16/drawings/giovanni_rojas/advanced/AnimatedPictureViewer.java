@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+
 /**
  * A main class to view an animation
  *
@@ -23,6 +24,7 @@ public class AnimatedPictureViewer {
     private int x = 30;
     private int y = 90;
 
+    private int dx = 5;
     private int dy = 5;
 
     public static void main (String[] args) {
@@ -34,7 +36,7 @@ public class AnimatedPictureViewer {
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	frame.getContentPane().add(panel);
-	frame.setSize(640,480);
+	frame.setSize(840,680);
 	frame.setVisible(true);
 
 	frame.getContentPane().addMouseListener(new MouseAdapter() {
@@ -80,9 +82,12 @@ public class AnimatedPictureViewer {
 	    try {
 		while (true) {
 		    // Bounce off the walls
-		    if (y >= 170) { dy = -5; }
-		    if (y <= 20) { dy = 5; }
+		    if (y >= 380) { dy = (int)( Math.random()*50*(-1)); }
+		    if (y <= 0) { dy = (int) (Math.random()*50); }
+		    if (x <= 0) { dx = (int) (Math.random()*50); }
+		    if (x >= 260) { dx = (int) (Math.random()*50*(-1)); }
 
+		    x += dx;
 		    y += dy;
 		    panel.repaint();
 		    Thread.sleep(50);
