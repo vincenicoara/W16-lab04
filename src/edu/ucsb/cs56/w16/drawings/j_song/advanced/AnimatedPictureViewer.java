@@ -17,20 +17,25 @@ public class AnimatedPictureViewer{
 
     Thread anim;
 
-    private int x = 130;
-    private int y = 140;
+    private int x = 340;
+    private int y = 150;
     private int dx = 5;
     private int dy = 5;
+    private Color col = Color.RED;
 
-    private static void main(String[] args){
+    public static void main(String[] args){
         new AnimatedPictureViewer().start();
     }
 
     public void start(){
         JFrame frame = new JFrame();
         frame.setSize(640,480);
-        frame.setTitle("The Clockwise Controller");
+        frame.setTitle("The Clockwise Controller (With Original SNES Logo Colors)");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.getContentPane().add(panel);
+    
+        System.out.println("Hold mouse down to continue animation");
 
         frame.getContentPane().addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e){
@@ -53,12 +58,12 @@ public class AnimatedPictureViewer{
         public void paintComponent(Graphics g){
             Graphics2D g2 = (Graphics2D) g;
 
-            g2.setColor(Color.white);
+            g2.setColor(Color.DARK_GRAY);
             g2.fillRect(0,0,this.getWidth(), this.getHeight());
         
-            g2.setColor(Color.GREEN);
-            SNESController snes = new SNESController(x,y,400,200);
-            g2.draw(snes);
+            g2.setColor(col);
+            SNESController test = new SNESController(x,y,280,140);
+            g2.draw(test);
         
         }
     }
@@ -67,14 +72,27 @@ public class AnimatedPictureViewer{
         public void run(){
             try {
                 while (true) {
-                    if (x >= 370){dy = 5;}
-                    else if (y >= 250){dx = -5;}
-                    else if (x <= 100){dy = -5;}
-                    else if (y <= 100){dx = 5;}
+                    if (x == 340){
+                                  dy = 5;
+                                  col = Color.RED;
+                                 }
+                    if (y == 300){
+                                  dx = -5;
+                                  col = Color.YELLOW;
+                                 }
+                    if (x == 10){
+                                  dy = -5;
+                                  col = Color.GREEN;
+                                 }
+                    if (y == 10){
+                                  dx = 5;
+                                  col = Color.BLUE;
+                                }
+                                
 
-                    if ((x>= 370) || (x<= 100))
+                    if (((x == 340) && (y < 300)) || ((x == 10) && (y > 10)))
                         y += dy;
-                    else if ((y >= 250) || (y <= 100))
+                    else if ((y == 300) || (y == 10))
                         x += dx;
                 
                     panel.repaint();
