@@ -258,7 +258,7 @@
     <java fork="true" classpathref="project.class.path" 
 	  classname="edu.ucsb.cs56.w16.drawings.andrewberls.advanced.AnimatedPictureViewer" />
   </target>
-  
+
   <target name="myMPV2" depends="compile" 
 	  description="run MultiPictureViewer from ${env.USER} subdir, arg 2">
     <java fork="true" classpathref="project.class.path" 
