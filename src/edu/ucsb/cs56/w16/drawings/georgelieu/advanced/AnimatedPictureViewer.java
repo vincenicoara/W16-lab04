@@ -16,16 +16,14 @@ public class AnimatedPictureViewer {
 
     private DrawPanel panel = new DrawPanel();
     
-    private BirthdayCake cake = new BirthdayCake(0,0, 75, 75);
-    
     Thread anim;   
     
     private int x = 0;
-    private int y = 240;
+    private int y = 20;
     
     private int dx = 10;
     private int dy = 10;
-    
+    private int size = 1;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -69,7 +67,7 @@ public class AnimatedPictureViewer {
 
           // Draw the Birthday cake
           g2.setColor(Color.WHITE);
-          BirthdayCake cake = new BirthdayCake(x, y, 100, 100);
+          BirthdayCake cake = new BirthdayCake(x, y, size+70, size+70);
 	  Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);      
 	  g2.setStroke(thick);
           g2.draw(cake);
@@ -84,16 +82,18 @@ public class AnimatedPictureViewer {
           while (true) {
             // Bounce off the walls
 
-            if (x >= 400) { dx = -5; }
-            if (x <= 50) { dx = 5; }
+            if (x >= 450) { dx = -10;}
+            if (x <= 100) { dx = 10; }
             
             x += dx;
 
-	    if (y >= 600) { dy = -5; }
-	    if (y <= 50) { dy = 5; }
+	    if (y >= 320) { dy = -10; }
+	    if (y <= 100) { dy = 10; }
 
 	    y += dy;
-	  
+	    size = size + 2;
+	    if(size >= 75) {size = 10;}
+ 
             panel.repaint();
             Thread.sleep(50);
           }
