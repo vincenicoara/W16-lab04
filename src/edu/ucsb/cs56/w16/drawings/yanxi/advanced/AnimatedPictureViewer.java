@@ -46,6 +46,15 @@ public class AnimatedPictureViewer {
 	frame.setVisible(true);
 	anim = new Animate();
 	anim.start();
+
+	frame.getContentPane().addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent e){
+		    dx1 ++;
+		    dy1 --;
+		    dx2 --;
+		    dy2 ++;
+		}
+	    });
     }
 
     class DrawPanel extends JPanel{
@@ -90,7 +99,7 @@ public class AnimatedPictureViewer {
 		    y2 += dy2;
 		    
 		    panel.repaint();
-		    Thread.sleep(30);
+		    Thread.sleep(50);
 		}
 	    } catch(Exception e){
 		if(!(e instanceof InterruptedException))
