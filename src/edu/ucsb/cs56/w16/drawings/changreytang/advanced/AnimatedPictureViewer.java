@@ -64,6 +64,14 @@ public class AnimatedPictureViewer extends JFrame
 							while (animate.isAlive()){}//loop;
 							animate = null;
 						    }//end MouseExited
+                            
+                            public void mousePressed(MouseEvent e) {
+                                component.setClicked(true);
+                            }
+
+                            public void mouseReleased(MouseEvent e) {
+                                component.setClicked(false);
+                            }
 						}//end new MouseAdapter
 						);//end addMouseListener()
 	//End definition of anonymous inner class

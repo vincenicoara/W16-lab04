@@ -51,6 +51,7 @@ public class AnimatedPictureComponent extends JComponent
     private double phoneYPos;
     private double phoneHeight;
     private double phoneWidth;
+    private boolean clicked;
 
 
     /** Constructs an AnimatedPictureComponent with specific properties.
@@ -78,6 +79,12 @@ public class AnimatedPictureComponent extends JComponent
         rotatePhone2 = new TouchScreenPhone(this.phoneXPos+1.15*phoneXPos, this.phoneYPos+2.5*phoneYPos, this.phoneHeight/2);
         rotatePhone3 = new TouchScreenPhone(this.phoneXPos+1.15*phoneXPos, this.phoneYPos-0.5*phoneYPos, this.phoneHeight/2);
         rotatePhone4 = new TouchScreenPhone(this.phoneXPos-0.7*phoneXPos, this.phoneYPos+2.5*phoneYPos, this.phoneHeight/2);
+        clicked = false;
+    }
+
+
+    void setClicked(boolean value) {
+        this.clicked = value;
     }
 
     /** The paintComponent method is overriden to display
@@ -89,15 +96,18 @@ public class AnimatedPictureComponent extends JComponent
    {  
        Graphics2D g2 = (Graphics2D) g;
     
-       rotatePhone1 = ShapeTransforms.rotatedCopyOf(rotatePhone1, 0.03);
-       rotatePhone2 = ShapeTransforms.rotatedCopyOf(rotatePhone2, 0.03);
-       rotatePhone3 = ShapeTransforms.rotatedCopyOf(rotatePhone3, 0.03);
-       rotatePhone4 = ShapeTransforms.rotatedCopyOf(rotatePhone4, 0.03);
-       g2.draw(rotatePhone1);
-       g2.draw(rotatePhone2);
-       g2.draw(rotatePhone3);
-       g2.draw(rotatePhone4);
-       
+       g2.drawString("Hold down mouse click for a surprise!",190, 20);
+
+       if(this.clicked == true) {
+           rotatePhone1 = ShapeTransforms.rotatedCopyOf(rotatePhone1, 0.03);
+           rotatePhone2 = ShapeTransforms.rotatedCopyOf(rotatePhone2, 0.03);
+           rotatePhone3 = ShapeTransforms.rotatedCopyOf(rotatePhone3, 0.03);
+           rotatePhone4 = ShapeTransforms.rotatedCopyOf(rotatePhone4, 0.03);
+           g2.draw(rotatePhone1);
+           g2.draw(rotatePhone2);
+           g2.draw(rotatePhone3);
+           g2.draw(rotatePhone4);
+       }
        g2.setColor(Color.BLACK);
        if(time < 200 && (time%12 == 0 || time%12 == 1 || time%12 == 2 || time%12 == 3)) {
            g2.draw(IPhone);
