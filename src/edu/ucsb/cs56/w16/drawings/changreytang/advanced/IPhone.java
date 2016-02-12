@@ -62,7 +62,6 @@ public class IPhone extends TouchScreenPhone implements Shape
 	Line2D.Double line12 = new Line2D.Double(x+xhalf+xhalf*0.1,y+yhalf-yhalf*0.25,
 						 x+xhalf,y+yhalf-yhalf*0.2);
 	
-
         GeneralPath apple = this.get();
         apple.append(line1, false);
 	apple.append(line2, false);
