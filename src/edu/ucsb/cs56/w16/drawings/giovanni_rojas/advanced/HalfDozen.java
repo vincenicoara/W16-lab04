@@ -34,19 +34,20 @@ public class HalfDozen extends EggCarton implements Shape
 	super(x, y, width, height);
 	GeneralPath wholeCarton = this.get();
 
-	double r = width * 0.13;
-	double firstColumnX = x + (0.25 * width);
-	double secondColumnX = x + (0.5 * width);
-	double thirdColumnX = x + (0.75 * width);
-	double firstRowY = y + (0.33 * 0.37 * width);
-	double secondRowY = y + (0.66 * 0.37 * width);
+	double rX = width * 0.13;
+	double rY = width * 0.18;
+	double firstColumnX = x + (0.20 * width);
+	double secondColumnX = x + (0.45 * width);
+	double thirdColumnX = x + (0.70 * width);
+	double firstRowY = y + (0.13 * 0.37 * width);
+	double secondRowY = y + (0.62 * 0.37 * width);
 
-	Ellipse2D.Double egg1 = new Ellipse2D.Double(firstColumnX, firstRowY, r, r);
-	Ellipse2D.Double egg2 = new Ellipse2D.Double(secondColumnX, firstRowY, r, r);
-	Ellipse2D.Double egg3 = new Ellipse2D.Double(thirdColumnX, firstRowY, r, r);
-	Ellipse2D.Double egg4 = new Ellipse2D.Double(firstColumnX, secondRowY, r, r);
-	Ellipse2D.Double egg5 = new Ellipse2D.Double(secondColumnX, secondRowY, r, r);
-	Ellipse2D.Double egg6 = new Ellipse2D.Double(thirdColumnX, secondRowY, r, r);
+	Ellipse2D.Double egg1 = new Ellipse2D.Double(firstColumnX, firstRowY, rX, rY);
+	Ellipse2D.Double egg2 = new Ellipse2D.Double(secondColumnX, firstRowY, rX, rY);
+	Ellipse2D.Double egg3 = new Ellipse2D.Double(thirdColumnX, firstRowY, rX, rY);
+	Ellipse2D.Double egg4 = new Ellipse2D.Double(firstColumnX, secondRowY, rX, rY);
+	Ellipse2D.Double egg5 = new Ellipse2D.Double(secondColumnX, secondRowY, rX, rY);
+	Ellipse2D.Double egg6 = new Ellipse2D.Double(thirdColumnX, secondRowY, rX, rY);
 
 	wholeCarton.append(egg1, false);
 	wholeCarton.append(egg2, false);
