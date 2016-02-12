@@ -64,6 +64,9 @@ public class AnimatedPictureViewer{
             g2.setColor(col);
             SNESController test = new SNESController(x,y,280,140);
             g2.draw(test);
+
+            g2.setColor(Color.WHITE);
+            g2.drawString("Hold mouse click to start animation", 200, 445);
         
         }
     }
@@ -76,7 +79,7 @@ public class AnimatedPictureViewer{
                                   dy = 5;
                                   col = Color.RED;
                                  }
-                    if (y == 300){
+                    if (y == 280){
                                   dx = -5;
                                   col = Color.YELLOW;
                                  }
@@ -90,9 +93,9 @@ public class AnimatedPictureViewer{
                                 }
                                 
 
-                    if (((x == 340) && (y < 300)) || ((x == 10) && (y > 10)))
+                    if (((x == 340) && (y < 280)) || ((x == 10) && (y > 10)))
                         y += dy;
-                    else if ((y == 300) || (y == 10))
+                    else if ((y == 280) || (y == 10))
                         x += dx;
                 
                     panel.repaint();
