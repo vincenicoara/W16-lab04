@@ -36,6 +36,10 @@ public class AnimatedPictureComponent extends JComponent
 {  
     private Shape TouchScreenPhone;
     private Shape IPhone;
+    private Shape rotatePhone1;
+    private Shape rotatePhone2;
+    private Shape rotatePhone3;
+    private Shape rotatePhone4;
     private Shape BottomLine;
     private Shape TopLine;
     private Shape LockHold;
@@ -58,18 +62,22 @@ public class AnimatedPictureComponent extends JComponent
 	across the screen
     */
     public AnimatedPictureComponent(double phoneXPos, double phoneYPos, double phoneHeight) {
-	this.phoneXPos = phoneXPos;
-	this.phoneYPos = phoneYPos;
-	this.phoneHeight = phoneHeight;
-	this.phoneWidth = 0.6*phoneHeight;
-	this.xLockSpeed = (phoneYPos+0.77*phoneHeight - 2*0.15*phoneWidth)/200;
+        this.phoneXPos = phoneXPos;
+        this.phoneYPos = phoneYPos;
+        this.phoneHeight = phoneHeight;
+        this.phoneWidth = 0.6*phoneHeight;
+        this.xLockSpeed = (phoneYPos+0.77*phoneHeight - 2*0.15*phoneWidth)/200;
 
-	LockHold = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.77*phoneWidth, 0.1*phoneHeight);
-	Lock = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.20*phoneWidth, 0.1*phoneHeight);
-	BottomLine = new Line2D.Double(phoneXPos+phoneHeight*0.025, phoneYPos+0.73*phoneHeight, phoneXPos+phoneHeight*0.025+0.9*phoneWidth, phoneYPos+0.73*phoneHeight);
-	TopLine = new Line2D.Double(phoneXPos+phoneHeight*0.025, phoneYPos+0.22*phoneHeight, phoneXPos+phoneHeight*0.025+0.9*phoneWidth, phoneYPos+0.22*phoneHeight);
-    	TouchScreenPhone = new TouchScreenPhone(this.phoneXPos, this.phoneYPos, this.phoneHeight);
-	IPhone = new IPhone(this.phoneXPos, this.phoneYPos, this.phoneHeight);
+        LockHold = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.77*phoneWidth, 0.1*phoneHeight);
+        Lock = new Rectangle2D.Double(phoneXPos+0.1*phoneWidth, phoneYPos+0.77*phoneHeight, 0.20*phoneWidth, 0.1*phoneHeight);
+        BottomLine = new Line2D.Double(phoneXPos+phoneHeight*0.025, phoneYPos+0.73*phoneHeight, phoneXPos+phoneHeight*0.025+0.9*phoneWidth, phoneYPos+0.73*phoneHeight);
+        TopLine = new Line2D.Double(phoneXPos+phoneHeight*0.025, phoneYPos+0.22*phoneHeight, phoneXPos+phoneHeight*0.025+0.9*phoneWidth, phoneYPos+0.22*phoneHeight);
+        TouchScreenPhone = new TouchScreenPhone(this.phoneXPos, this.phoneYPos, this.phoneHeight);
+        IPhone = new IPhone(this.phoneXPos, this.phoneYPos, this.phoneHeight);
+        rotatePhone1 = new TouchScreenPhone(this.phoneXPos-0.7*phoneXPos, this.phoneYPos-0.5*phoneYPos, this.phoneHeight/2);
+        rotatePhone2 = new TouchScreenPhone(this.phoneXPos+1.15*phoneXPos, this.phoneYPos+2.5*phoneYPos, this.phoneHeight/2);
+        rotatePhone3 = new TouchScreenPhone(this.phoneXPos+1.15*phoneXPos, this.phoneYPos-0.5*phoneYPos, this.phoneHeight/2);
+        rotatePhone4 = new TouchScreenPhone(this.phoneXPos-0.7*phoneXPos, this.phoneYPos+2.5*phoneYPos, this.phoneHeight/2);
     }
 
     /** The paintComponent method is overriden to display
@@ -80,6 +88,15 @@ public class AnimatedPictureComponent extends JComponent
    public void paintComponent(Graphics g)
    {  
        Graphics2D g2 = (Graphics2D) g;
+    
+       rotatePhone1 = ShapeTransforms.rotatedCopyOf(rotatePhone1, 0.03);
+       rotatePhone2 = ShapeTransforms.rotatedCopyOf(rotatePhone2, 0.03);
+       rotatePhone3 = ShapeTransforms.rotatedCopyOf(rotatePhone3, 0.03);
+       rotatePhone4 = ShapeTransforms.rotatedCopyOf(rotatePhone4, 0.03);
+       g2.draw(rotatePhone1);
+       g2.draw(rotatePhone2);
+       g2.draw(rotatePhone3);
+       g2.draw(rotatePhone4);
        
        g2.setColor(Color.BLACK);
        if(time < 200 && (time%12 == 0 || time%12 == 1 || time%12 == 2 || time%12 == 3)) {
