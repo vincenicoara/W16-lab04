@@ -94,6 +94,7 @@ public class AllMyDrawings
 	IPhone ip1 = new IPhone(250,150,300);
 	IPhone ip2 = new IPhone(250,150,260);
 	IPhone ip3 = new IPhone(250,150,224);
+	
 	IPhone ip4 = new IPhone(250,150,150);
 	IPhone ip5 = new IPhone(250,150,60);
 
