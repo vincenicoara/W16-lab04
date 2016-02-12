@@ -21,14 +21,18 @@ public class AnimatedPictureViewer {
 
     Thread anim;
 
-    private int x = 100;
-    private int y = 100;
+    private int x1 = 100;
+    private int y1 = 100;
+    private int x2 = 400;
+    private int y2 = 110;
     
     private int r = 50;
     private int l = 50;
-    private int dx = 10;
-    private int dy = 10;
-
+    private int dx1 = 10;
+    private int dy1 = 10;
+    private int dx2 = -10;
+    private int dy2 = 10;
+    
     private Color color = Color.BLUE;
     public static void main(String[] args){
 	new AnimatedPictureViewer().go();
@@ -51,8 +55,8 @@ public class AnimatedPictureViewer {
 	    g2.setColor(Color.white);
 	    g2.fillRect(0,0,this.getWidth(), this.getHeight());
 	    g2.setColor(color);
-	    BallonWithFace b = new BallonWithFace(x, y, r, l);
-	    BallonWithFace a = new BallonWithFace(y, x, r, l);
+	    BallonWithFace b = new BallonWithFace(x1, y1, r, l);
+	    BallonWithFace a = new BallonWithFace(x2, y2, r, l);
 	    g2.draw(b);
 	    g2.draw(a);
 	}
@@ -62,16 +66,31 @@ public class AnimatedPictureViewer {
 	public void run(){
 	    try{
 		while(true){
-		    if (x >= 600 || x <= 50){
-			dx *= -1;
+		    if (x1 >= 600 || x1 <= 50){
+			dx1 *= -1;
 		    }
-		    if (y >= 400 || y <= 50){
-			dy *= -1;
+		    if (y1 >= 400 || y1 <= 50){
+			dy1 *= -1;
 		    }
-		    x += dx;
-		    y += dy;
+		    if (x2 >= 600 || x2 <= 50){
+			dx2 *= -1;
+		    }
+		    if (y2 >= 400 || y2 <= 50){
+			dy2 *= -1;
+		    }
+		    if(Math.hypot((x1-x2), (y1-y2)) <= r){
+			dx1 *= -1;
+			dy1 *= -1;
+			dx2 *= -1;
+			dy2 *= -1;
+		    }
+		    x1 += dx1;
+		    y1 += dy1;
+		    x2 += dx2;
+		    y2 += dy2;
+		    
 		    panel.repaint();
-		    Thread.sleep(50);
+		    Thread.sleep(30);
 		}
 	    } catch(Exception e){
 		if(!(e instanceof InterruptedException))
